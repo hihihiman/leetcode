@@ -23,7 +23,7 @@ class Solution {
         List<Integer> cur = new ArrayList<>();
         cur.add(1);
         for(int i=0;i<rowIndex;i++){
-            for (int j=i;j>1;j--){
+            for (int j=i;j>0;j--){
                 cur.set(j,cur.get(j-1)+cur.get(j));
             }
             cur.add(1);
