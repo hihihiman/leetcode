@@ -37,7 +37,13 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int titleToNumber(String s) {
-
+        int length = s.length();
+        int sum = 0;
+        char[] c = s.toCharArray();
+        for (int i = 0; i < length; i++) {
+            sum = sum*26 + (c[i]-'A'+1);
+        }
+        return sum;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
