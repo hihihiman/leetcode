@@ -1,0 +1,63 @@
+//合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。 
+//
+// 示例: 
+//
+// 输入:
+//[
+//  1->4->5,
+//  1->3->4,
+//  2->6
+//]
+//输出: 1->1->2->3->4->4->5->6 
+// Related Topics 堆 链表 分治算法
+
+
+//leetcode submit region begin(Prohibit modification and deletion)
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) {
+            return null;
+        }
+        int interval = 1;
+        while (interval < lists.length) {
+            for (int i = 0; i + interval < lists.length; i = i + interval * 2) {
+                lists[i] = mergeTwoList(lists[i], lists[i + interval]);
+            }
+            interval *= 2;
+        }
+        return lists[0];
+    }
+
+    private ListNode mergeTwoList(ListNode l1, ListNode l2) {
+        ListNode h = new ListNode(0);
+        ListNode ans = h;
+        while (l1 != null & l2 != null) {
+            if (l1.val < l2.val) {
+                h.next = l1;
+                h = h.next;
+                l1 = l1.next;
+            } else {
+                h.next = l2;
+                h = h.next;
+                l2 = l2.next;
+            }
+        }
+        if (l1 == null) {
+            h.next = l2;
+        }
+        if (l2 == null) {
+            h.next = l1;
+        }
+        return ans.next;
+    }
+}
+//leetcode submit region end(Prohibit modification and deletion)
