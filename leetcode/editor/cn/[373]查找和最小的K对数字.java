@@ -32,7 +32,24 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-
+        Queue<int[]> maxHeap = new PriorityQueue<>((a,b)->(b[0]+b[1]-a[0]-a[1]));
+        for (int i=0;i<nums1.length;i++){
+            for (int j=0;j<nums2.length;j++){
+                maxHeap.add(new int[]{nums1[i],nums2[j]});
+                if (maxHeap.size()>k){
+                    maxHeap.poll();
+                }
+            }
+        }
+        LinkedList<List<Integer>> all = new LinkedList<>();
+        while (maxHeap.size()>0){
+            int[] item = maxHeap.poll();
+            List<Integer> list = new ArrayList<>();
+            list.add(item[0]);
+            list.add(item[1]);
+            all.addFirst(list);
+        }
+        return all;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
