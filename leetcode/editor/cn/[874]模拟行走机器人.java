@@ -47,6 +47,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
+        int maxDistance = 0;
 
     }
 }
