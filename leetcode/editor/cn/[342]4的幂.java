@@ -19,7 +19,10 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isPowerOfFour(int num) {
-        return false;
+        if(num<=0 || (num&(num-1))!=0) {
+            return false;
+        }
+        return (num&(0x55555555))==num;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
