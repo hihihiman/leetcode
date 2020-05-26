@@ -45,7 +45,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int numberOfSteps (int num) {
-
+        return num==0?0:1+numberOfSteps((num&1)==1?num-1:num>>1);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
