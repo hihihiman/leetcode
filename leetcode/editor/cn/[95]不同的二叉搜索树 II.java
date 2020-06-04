@@ -36,7 +36,6 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 
 //import define.TreeNode;
-//
 //import java.util.LinkedList;
 //import java.util.List;
 
