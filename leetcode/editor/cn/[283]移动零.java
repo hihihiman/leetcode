@@ -17,7 +17,25 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void moveZeroes(int[] nums) {
+        int zeroIndex = nums.length-1;
+        for (int i=0;i< nums.length;i++){
+            if (nums[i]==0){
+                zeroIndex = i;
+                break;
+            }
+        }
+        for (int i = zeroIndex+1;i<nums.length;i++){
+            if(nums[i] != 0){
+                swap(nums,i,zeroIndex);
+                zeroIndex ++;
+            }
+        }
+    }
 
+    private void swap(int[] nums, int a, int b) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b]= temp;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
