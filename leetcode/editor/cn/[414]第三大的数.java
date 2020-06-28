@@ -33,10 +33,28 @@
 // Related Topics 数组
 
 
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int thirdMax(int[] nums) {
-
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i : nums) {
+            if (!pq.contains(i)) {
+                pq.offer(i);
+                if (pq.size() > 3) {
+                    pq.poll();
+                }
+            }
+        }
+        if (pq.size() < 3) {
+            while (pq.size() > 1) {
+                pq.poll();
+            }
+        }
+        return pq.peek();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
