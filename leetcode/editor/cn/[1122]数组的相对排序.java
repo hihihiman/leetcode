@@ -29,9 +29,27 @@
 // Related Topics 排序 数组
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        HashMap<Integer, List<Integer>> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        int[] res = new int[arr1.length];
+        int idx = 0;
+        for (int i:arr2){
+            map.put(i, new ArrayList<>());
+        }
+        for (int i:arr1){
+            if (map.containsKey(i)){
+                map.get(i).add(i);
+            }else {
+                list.add(i);
+            }
+        }
 
     }
 }
