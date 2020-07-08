@@ -34,10 +34,32 @@
 // 👍 25 👎 0
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
-
+        List<List<Integer>> list = new ArrayList<>();
+        Arrays.sort(arr);
+        int min = Math.abs(arr[1] - arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            if (Math.abs(arr[i] - arr[i - 1]) == min) {
+                List<Integer> temp = new ArrayList<>();
+                temp.add(arr[i - 1]);
+                temp.add(arr[i]);
+                list.add(temp);
+            } else if (Math.abs(arr[i] - arr[i - 1]) < min) {
+                list.clear();
+                List<Integer> temp = new ArrayList<>();
+                temp.add(arr[i - 1]);
+                temp.add(arr[i]);
+                list.add(temp);
+                min = arr[i] - arr[i - 1];
+            }
+        }
+        return list;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
