@@ -20,6 +20,8 @@
 // Related Topics 堆 哈希表
 
 
+import java.util.*;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<Integer> topKFrequent(int[] nums, int k) {
@@ -29,7 +31,7 @@ class Solution {
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
         //堆排序思想
-        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>((a,b)->b.getValue()-a.getValue());
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>((a, b)->b.getValue()-a.getValue());
 
         maxHeap.addAll(map.entrySet());
         List<Integer> resList = new ArrayList<>();
