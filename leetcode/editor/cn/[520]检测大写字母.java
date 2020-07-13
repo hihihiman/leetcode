@@ -43,16 +43,16 @@ class Solution {
         }
 
         for (int i = 1; i < word.length(); i++) {
-            if (bigFirst){
-                if (i+1==word.length()){
+            if (bigFirst) {
+                if (i + 1 == word.length()) {
                     break;
                 }
-                if (isBig(word.charAt(i))^isBig(word.charAt(i+1))){
+                if (isBig(word.charAt(i)) ^ isBig(word.charAt(i + 1))) {
                     return false;
                 }
 
-            }else{
-                if (isBig(word.charAt(i))){
+            } else {
+                if (isBig(word.charAt(i))) {
                     return false;
                 }
             }
