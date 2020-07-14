@@ -38,7 +38,29 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] numSmallerByFrequency(String[] queries, String[] words) {
-
+        int[] array = new int[words.length];
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < array.length; i++)
+            array[i] = count(words[i]);
+        for (int i = 0; i < ans.length; i++) {
+            int count = count(queries[i]);
+            for (int j = array.length - 1; j >= 0; j--)
+                ans[i]+=count < array[j]?1:0;
+        }
+        return ans;
+    }
+    // 统计最小字母出现数
+    public static int count(String str) {
+        int[] alphabet = new int[26];
+        for (int i = 0; i < str.length(); i++) {
+            alphabet[str.charAt(i) - 'a']++;
+        }
+        for (int count : alphabet) {
+            if (count != 0) {
+                return count;
+            }
+        }
+        return 0;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
