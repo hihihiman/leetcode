@@ -37,7 +37,16 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int arrangeCoins(int n) {
-
+        int count = 0;
+        long sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum+=i;
+            if (sum>n){
+                break;
+            }
+            count++;
+        }
+        return count;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
