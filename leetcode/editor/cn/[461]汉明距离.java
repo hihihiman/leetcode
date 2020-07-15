@@ -25,7 +25,13 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int hammingDistance(int x, int y) {
-
+        int i = x ^ y;
+        int count = 0;
+        while (i != 0) {
+            ++count;
+            i = (i - 1) & i;
+        }
+        return count;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
