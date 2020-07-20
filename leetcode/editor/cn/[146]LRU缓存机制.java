@@ -89,7 +89,11 @@ class LRUCache {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
-
+    private DLinkedNode removeTail() {
+        DLinkedNode res = tail.prev;
+        removeNode(res);
+        return res;
+    }
     public void put(int key, int value) {
         DLinkedNode node = cache.get(key);
         if (node == null) {
