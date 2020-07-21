@@ -32,12 +32,13 @@
 // 
 // Related Topics 树 动态规划
 
+import define.TreeNode;
+import java.util.LinkedList;
+import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-//import define.TreeNode;
-//import java.util.LinkedList;
-//import java.util.List;
+
 
 /**
  * Definition for a binary tree node.
@@ -57,7 +58,7 @@
 class Solution {
     public List<TreeNode> generateTrees(int n) {
         if (n == 0) {
-            return new LinkedList<TreeNode>();
+            return new LinkedList<>();
         }
         return generateTrees(1, n);
     }
