@@ -6,7 +6,8 @@ public class Node {
     public int val;
     public List<Node> children;
 
-    public Node() {}
+    public Node() {
+    }
 
     public Node(int _val) {
         val = _val;
@@ -16,4 +17,16 @@ public class Node {
         val = _val;
         children = _children;
     }
+
+    //No.116 新增需求
+    public Node left;
+    public Node right;
+    public Node next;
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+
 }
